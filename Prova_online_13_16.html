@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova de Inglês Corporativo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 3px solid #2c5364;
+            margin-bottom: 30px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .logo {
+            max-height: 70px;
+            margin-bottom: 5px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            animation: logoPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        
+        .logo-year {
+            font-size: 12px;
+            color: #2c5364;
+            font-weight: 600;
+        }
+        
+        .page-title {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input[type="text"], input[type="tel"], select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus, select:focus {
+            border-color: #2c5364;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(44, 83, 100, 0.2);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #2c5364;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #203a43;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn-success {
+            background-color: #27ae60;
+        }
+        
+        .btn-success:hover {
+            background-color: #219653;
+        }
+        
+        .btn-audio {
+            background-color: #3498db;
+        }
+        
+        .btn-audio:hover {
+            background-color: #2980b9;
+        }
+        
+        .question {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .question-number {
+            display: inline-block;
+            background-color: #2c5364;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            margin-right: 10px;
+            font-weight: 600;
+        }
+        
+        .question-text {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .question-points {
+            font-size: 14px;
+            color: #2c5364;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .audio-container {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .audio-player {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .audio-control {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .audio-control:hover {
+            background-color: #2980b9;
+        }
+        
+        .audio-text {
+            font-style: italic;
+            color: #666;
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .options {
+            margin-left: 10px;
+        }
+        
+        .option {
+            margin-bottom: 10px;
+            padding: 10px 0;
+        }
+        
+        .option label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        
+        .option input {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        
+        .writing-question {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .writing-question textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-family: inherit;
+            font-size: 16px;
+            line-height: 1.5;
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .writing-question textarea:focus {
+            border-color: #f39c12;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.2);
+        }
+        
+        .char-count {
+            text-align: right;
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        
+        .result-section {
+            text-align: center;
+        }
+        
+        .score {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c5364;
+            margin: 20px 0;
+        }
+        
+        .score-details {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .result-details {
+            text-align: left;
+            margin-top: 30px;
+        }
+        
+        .correct-answer {
+            color: #27ae60;
+            font-weight: 600;
+        }
+        
+        .incorrect-answer {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        
+        .answer-explanation {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .student-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2c5364;
+        }
+        
+        .time-info {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #2c5364;
+            font-weight: 600;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .tool-info {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .tool-badge {
+            background-color: #e8f4fc;
+            color: #2c5364;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .performance-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 15px 0;
+        }
+        
+        .excellent {
+            background-color: #d5f4e6;
+            color: #27ae60;
+        }
+        
+        .good {
+            background-color: #e8f4fc;
+            color: #3498db;
+        }
+        
+        .regular {
+            background-color: #fff3cd;
+            color: #f39c12;
+        }
+        
+        .poor {
+            background-color: #fdeaea;
+            color: #e74c3c;
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2c5364;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+        }
+        
+        .teacher-info {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .compact-list {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .compact-list .question {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .audio-player {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background-color: #2c5364;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+        
+        .writing-feedback {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 4px solid #f39c12;
+            font-size: 0.9rem;
+        }
+        
+        .question-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        
+        .unit-info {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="https://i.ibb.co/ZRSQ1Bm2/logo.png" alt="Ápice Treinamentos" class="logo">
+                <div class="logo-year">2025</div>
+            </div>
+            <div class="time-info" id="timer">Tempo: 45:00</div>
+        </header>
+        
+        <h1 class="page-title">Prova de Inglês Corporativo</h1>
+        
+        <!-- Seção de informações do aluno -->
+        <section id="student-section" class="section">
+            <h2>Informações do Aluno</h2>
+            
+            <div class="form-group">
+                <label for="student-name">Nome Completo:</label>
+                <input type="text" id="student-name" placeholder="Digite seu nome completo">
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="student-class">Turma:</label>
+                    <input type="text" id="student-class" placeholder="Turma do aluno">
+                </div>
+                
+                <div class="form-group">
+                    <label for="student-unit">Unidade:</label>
+                    <input type="text" id="student-unit" placeholder="Ex: Unidade 3 - Comunicação">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="student-phone">Telefone:</label>
+                    <input type="tel" id="student-phone" placeholder="(11) 99999-9999">
+                </div>
+                
+                <div class="form-group">
+                    <label for="book">Livro:</label>
+                    <select id="book" required>
+                        <option value="">Selecione o livro</option>
+                        <option value="Book 1">Book 1</option>
+                        <option value="Book 2">Book 2</option>
+                        <option value="Book 3">Book 3</option>
+                        <option value="Book 4">Book 4</option>
+                        <option value="Book 5">Book 5</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group teacher-info">
+                <label for="teacher-name">Professor:</label>
+                <input type="text" id="teacher-name" placeholder="Nome do professor responsável">
+            </div>
+            
+            <div class="unit-info">
+                <p><strong>Instruções:</strong> Esta prova contém 15 questões sobre:</p>
+                <div class="tool-info">
+                    <span class="tool-badge">Vocabulário Corporativo</span>
+                    <span class="tool-badge">Gramática (Can/There/Prepositions)</span>
+                    <span class="tool-badge">Compreensão Auditiva</span>
+                    <span class="tool-badge">Escrita</span>
+                    <span class="tool-badge">Comunicação Telefônica</span>
+                </div>
+                <p style="margin-top: 10px; font-size: 0.9rem;"><i class="fas fa-clock"></i> Duração: 45 minutos | <i class="fas fa-star"></i> Pontuação: 0-10 pontos</p>
+            </div>
+            
+            <button id="start-test" class="btn btn-block">Iniciar Prova</button>
+        </section>
+        
+        <!-- Seção da prova -->
+        <section id="test-section" class="section hidden">
+            <div class="student-info">
+                <strong>Aluno:</strong> <span id="display-student-name"></span> | 
+                <strong>Turma:</strong> <span id="display-student-class"></span> |
+                <strong>Unidade:</strong> <span id="display-student-unit"></span> |
+                <strong>Professor:</strong> <span id="display-teacher-name"></span> |
+                <strong>Pontuação Total:</strong> 10 pontos
+            </div>
+            
+            <div id="questions-container">
+                <!-- As questões serão inseridas aqui via JavaScript -->
+            </div>
+            
+            <div class="action-buttons">
+                <button id="submit-test" class="btn btn-success">
+                    <i class="fas fa-paper-plane"></i> Finalizar Prova
+                </button>
+            </div>
+        </section>
+        
+        <!-- Seção de resultados -->
+        <section id="result-section" class="section hidden">
+            <div class="result-section">
+                <h2>Resultado da Prova</h2>
+                <div class="student-info">
+                    <strong>Aluno:</strong> <span id="result-student-name"></span> | 
+                    <strong>Turma:</strong> <span id="result-student-class"></span> |
+                    <strong>Unidade:</strong> <span id="result-student-unit"></span> |
+                    <strong>Professor:</strong> <span id="result-teacher-name"></span>
+                </div>
+                
+                <div class="score" id="score">0.0/10</div>
+                <div class="score-details" id="score-details">(0 acertos de 12 questões objetivas)</div>
+                
+                <div id="performance-badge" class="performance-badge"></div>
+                <p id="performance-text"></p>
+                
+                <div id="wrong-answers-container" class="compact-list">
+                    <!-- Apenas questões erradas serão mostradas aqui -->
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="download-pdf" class="btn">
+                        <i class="fas fa-file-pdf"></i> Baixar Relatório (2 páginas)
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Ápice Treinamentos &copy; 2025 - Prova de Inglês Corporativo</p>
+            <p>Vocabulário • Gramática • Compreensão Auditiva • Escrita • Comunicação Telefônica</p>
+        </footer>
+    </div>
+
+    <div class="scroll-top" id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Dados da prova com pontos distribuídos (total 10 pontos)
+        const questions = [
+            // Questões de áudio (3 questões)
+            {
+                id: 1,
+                question: "Ouça o áudio e responda: O que a pessoa está pedindo?",
+                type: "audio",
+                audioText: "Good morning, could you please send me the report by email? I need it for the 3 PM meeting.",
+                options: [
+                    "Está pedindo para marcar uma reunião",
+                    "Está pedindo o relatório por email",
+                    "Está pedindo um café",
+                    "Está pedindo para adiar a reunião"
+                ],
+                correctAnswer: 1,
+                explanation: "A pessoa diz: 'could you please send me the report by email? I need it for the 3 PM meeting.'",
+                category: "Compreensão Auditiva",
+                points: 0.5
+            },
+            {
+                id: 2,
+                question: "Ouça o diálogo telefônico e responda: Qual é o problema?",
+                type: "audio",
+                audioText: "I'm afraid Mr. Johnson is in a meeting right now. Would you like to leave a message or should I ask him to call you back?",
+                options: [
+                    "A linha está ocupada",
+                    "O Sr. Johnson não está disponível",
+                    "A secretária não fala inglês",
+                    "O número está errado"
+                ],
+                correctAnswer: 1,
+                explanation: "A secretária diz: 'I'm afraid Mr. Johnson is in a meeting right now.'",
+                category: "Compreensão Auditiva",
+                points: 0.5
+            },
+            {
+                id: 3,
+                question: "Ouça a pergunta e escolha a resposta correta:",
+                type: "audio",
+                audioText: "Where is the photocopier located?",
+                options: [
+                    "It's next to the printer, in the main office",
+                    "I don't know how to use it",
+                    "The report is on my desk",
+                    "We need more paper"
+                ],
+                correctAnswer: 0,
+                explanation: "A pergunta é sobre a localização da fotocopiadora. A resposta correta indica onde ela está.",
+                category: "Compreensão Auditiva",
+                points: 0.5
+            },
+            
+            // Questões de Vocabulário (3 questões)
+            {
+                id: 4,
+                question: "Qual é o termo em inglês para 'folha de ponto' ou 'registro de horas trabalhadas'?",
+                type: "multiple",
+                options: [
+                    "work schedule",
+                    "time sheet", 
+                    "attendance list",
+                    "hour document"
+                ],
+                correctAnswer: 1,
+                explanation: "'Time sheet' é o termo correto para folha de ponto ou registro de horas trabalhadas.",
+                category: "Vocabulário",
+                points: 0.5
+            },
+            {
+                id: 5,
+                question: "Complete a frase: 'I need to make a copy. Where is the ________?'",
+                type: "multiple",
+                options: [
+                    "photocopier machine",
+                    "copy machine", 
+                    "paper printer",
+                    "document scanner"
+                ],
+                correctAnswer: 1,
+                explanation: "A máquina de fazer cópias é chamada de 'copy machine' ou 'photocopier'.",
+                category: "Vocabulário",
+                points: 0.5
+            },
+            {
+                id: 6,
+                question: "O que significa 'deadline' no contexto corporativo?",
+                type: "multiple",
+                options: [
+                    "Linha de chegada",
+                    "Data limite para entrega",
+                    "Horário de almoço",
+                    "Reunião importante"
+                ],
+                correctAnswer: 1,
+                explanation: "'Deadline' significa data limite ou prazo final para entrega de um trabalho ou projeto.",
+                category: "Vocabulário",
+                points: 0.5
+            },
+            
+            // Questões de Gramática (3 questões)
+            {
+                id: 7,
+                question: "Complete com 'can' ou 'can't': 'Sorry, I ________ attend the meeting tomorrow.'",
+                type: "multiple",
+                options: [
+                    "can",
+                    "can't",
+                    "could",
+                    "will"
+                ],
+                correctAnswer: 1,
+                explanation: "'Can't' expressa incapacidade ou impossibilidade.",
+                category: "Gramática",
+                points: 0.5
+            },
+            {
+                id: 8,
+                question: "Complete: '________ three meeting rooms on this floor.'",
+                type: "multiple",
+                options: [
+                    "There is",
+                    "There are",
+                    "It is",
+                    "They are"
+                ],
+                correctAnswer: 1,
+                explanation: "'There are' é usado para plural. 'Three meeting rooms' é plural.",
+                category: "Gramática",
+                points: 0.5
+            },
+            {
+                id: 9,
+                question: "Complete: 'The files are ________ the top drawer.'",
+                type: "multiple",
+                options: [
+                    "in",
+                    "on",
+                    "at",
+                    "under"
+                ],
+                correctAnswer: 0,
+                explanation: "'In' é usado para coisas dentro de recipientes, como gavetas.",
+                category: "Gramática",
+                points: 0.5
+            },
+            
+            // Questões de Comunicação (3 questões)
+            {
+                id: 10,
+                question: "Complete a saudação telefônica: 'Good morning, ABC Company. ________?'",
+                type: "multiple",
+                options: [
+                    "How may I help you",
+                    "Who are you",
+                    "What do you want",
+                    "Why are you calling"
+                ],
+                correctAnswer: 0,
+                explanation: "'How may I help you?' é a forma padrão de atender o telefone em uma empresa.",
+                category: "Comunicação",
+                points: 0.5
+            },
+            {
+                id: 11,
+                question: "O que você diria para colocar alguém em espera?",
+                type: "multiple",
+                options: [
+                    "Wait a minute.",
+                    "Could you hold the line, please?",
+                    "Don't hang up.",
+                    "Stay there."
+                ],
+                correctAnswer: 1,
+                explanation: "'Could you hold the line, please?' é educado e profissional.",
+                category: "Comunicação",
+                points: 0.5
+            },
+            {
+                id: 12,
+                question: "Qual frase é correta para expressar futuro imediato?",
+                type: "multiple",
+                options: [
+                    "I meet clients every day.",
+                    "I am going to meet clients tomorrow.",
+                    "I met clients yesterday.",
+                    "I have met many clients."
+                ],
+                correctAnswer: 1,
+                explanation: "'Am going to meet' indica futuro próximo com intenção.",
+                category: "Comunicação",
+                points: 0.5
+            },
+            
+            // Questões de Escrita (3 questões)
+            {
+                id: 13,
+                question: "Escreva uma resposta para este email (mínimo 50 caracteres):",
+                type: "writing",
+                writingPrompt: "Dear team, Please remember that the deadline for the project report is this Friday. We need everyone's contribution by Thursday afternoon. Best regards, Manager",
+                minChars: 50,
+                correctAnswer: "",
+                explanation: "A resposta deve ser apropriada para o contexto corporativo.",
+                category: "Escrita",
+                points: 2.0
+            },
+            {
+                id: 14,
+                question: "Descreva como você pediria para falar com o gerente no telefone (mínimo 40 caracteres):",
+                type: "writing",
+                writingPrompt: "Cenário: Você precisa falar com o gerente Sr. Johnson sobre um projeto urgente.",
+                minChars: 40,
+                correctAnswer: "",
+                explanation: "Use expressões educadas como 'Could I speak with...'",
+                category: "Escrita",
+                points: 1.5
+            },
+            {
+                id: 15,
+                question: "Escreva como você daria direções para a sala de reuniões (mínimo 30 caracteres):",
+                type: "writing",
+                writingPrompt: "Um visitante chegou e precisa encontrar a sala de reuniões principal.",
+                minChars: 30,
+                correctAnswer: "",
+                explanation: "Use preposições de lugar para dar direções claras.",
+                category: "Escrita",
+                points: 1.0
+            }
+        ];
+
+        // Textos para os áudios
+        const audioTexts = {
+            1: "Good morning, could you please send me the report by email? I need it for the 3 PM meeting.",
+            2: "I'm afraid Mr. Johnson is in a meeting right now. Would you like to leave a message or should I ask him to call you back?",
+            3: "Where is the photocopier located?"
+        };
+
+        // Variáveis globais
+        let studentAnswers = [];
+        let writingAnswers = [];
+        let timeLeft = 45 * 60; // 45 minutos em segundos
+        let timerInterval;
+        let studentName = "";
+        let studentClass = "";
+        let studentUnit = "";
+        let teacherName = "";
+        let studentPhone = "";
+        let studentBook = "";
+        let testStarted = false;
+        let speechSynthesis = window.speechSynthesis;
+
+        // Elementos DOM
+        const studentSection = document.getElementById('student-section');
+        const testSection = document.getElementById('test-section');
+        const resultSection = document.getElementById('result-section');
+        const startTestBtn = document.getElementById('start-test');
+        const submitTestBtn = document.getElementById('submit-test');
+        const downloadPdfBtn = document.getElementById('download-pdf');
+        const timerElement = document.getElementById('timer');
+        const questionsContainer = document.getElementById('questions-container');
+        const wrongAnswersContainer = document.getElementById('wrong-answers-container');
+        const scoreElement = document.getElementById('score');
+        const scoreDetails = document.getElementById('score-details');
+        const performanceText = document.getElementById('performance-text');
+        const performanceBadge = document.getElementById('performance-badge');
+        const displayStudentName = document.getElementById('display-student-name');
+        const displayStudentClass = document.getElementById('display-student-class');
+        const displayStudentUnit = document.getElementById('display-student-unit');
+        const displayTeacherName = document.getElementById('display-teacher-name');
+        const resultStudentName = document.getElementById('result-student-name');
+        const resultStudentClass = document.getElementById('result-student-class');
+        const resultStudentUnit = document.getElementById('result-student-unit');
+        const resultTeacherName = document.getElementById('result-teacher-name');
+        const scrollTopBtn = document.getElementById('scroll-top');
+
+        // Inicializar a aplicação
+        document.addEventListener('DOMContentLoaded', function() {
+            renderQuestions();
+            
+            startTestBtn.addEventListener('click', startTest);
+            submitTestBtn.addEventListener('click', submitTest);
+            downloadPdfBtn.addEventListener('click', generatePDF);
+            
+            window.addEventListener('scroll', toggleScrollTopButton);
+            
+            studentAnswers = new Array(questions.length).fill(null);
+            writingAnswers = new Array(questions.length).fill("");
+            
+            window.addEventListener('beforeunload', function() {
+                if (speechSynthesis.speaking) {
+                    speechSynthesis.cancel();
+                }
+            });
+        });
+
+        // Mostrar/ocultar botão de rolar para o topo
+        function toggleScrollTopButton() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        }
+
+        // Renderizar as questões na página
+        function renderQuestions() {
+            questionsContainer.innerHTML = '';
+            
+            questions.forEach((q, index) => {
+                const questionElement = document.createElement('div');
+                questionElement.className = 'question';
+                questionElement.id = `question-${q.id}`;
+                
+                let optionsHTML = '';
+                let specialHTML = '';
+                
+                if (q.type === 'audio') {
+                    specialHTML = `
+                        <div class="audio-container">
+                            <p><strong>Áudio:</strong></p>
+                            <div class="audio-player">
+                                <button class="audio-control" onclick="playAudio(${q.id})">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <span>Clique para ouvir o áudio</span>
+                            </div>
+                            <p class="audio-text">"${q.audioText}"</p>
+                        </div>
+                    `;
+                    
+                    q.options.forEach((option, optIndex) => {
+                        optionsHTML += `
+                            <div class="option">
+                                <label>
+                                    <input type="radio" name="question-${q.id}" value="${optIndex}">
+                                    ${option}
+                                </label>
+                            </div>
+                        `;
+                    });
+                } 
+                else if (q.type === 'multiple') {
+                    q.options.forEach((option, optIndex) => {
+                        optionsHTML += `
+                            <div class="option">
+                                <label>
+                                    <input type="radio" name="question-${q.id}" value="${optIndex}">
+                                    ${option}
+                                </label>
+                            </div>
+                        `;
+                    });
+                }
+                else if (q.type === 'writing') {
+                    specialHTML = `
+                        <div class="writing-question">
+                            <p><strong>Cenário:</strong> ${q.writingPrompt}</p>
+                            <textarea id="writing-${q.id}" placeholder="Digite sua resposta aqui..." rows="4"></textarea>
+                            <div id="char-count-${q.id}" class="char-count">0 caracteres (mínimo: ${q.minChars})</div>
+                        </div>
+                    `;
+                    
+                    setTimeout(() => {
+                        const textarea = document.getElementById(`writing-${q.id}`);
+                        const charCount = document.getElementById(`char-count-${q.id}`);
+                        
+                        if (textarea) {
+                            textarea.addEventListener('input', function() {
+                                const length = this.value.length;
+                                charCount.textContent = `${length} caracteres (mínimo: ${q.minChars})`;
+                                
+                                if (length < q.minChars) {
+                                    charCount.style.color = '#e74c3c';
+                                } else {
+                                    charCount.style.color = '#27ae60';
+                                }
+                                
+                                writingAnswers[index] = this.value;
+                            });
+                        }
+                    }, 100);
+                }
+                
+                questionElement.innerHTML = `
+                    <div>
+                        <span class="question-number">${q.id}</span>
+                        <span class="tool-badge">${q.category}</span>
+                        <span class="question-points">(${q.points} ponto${q.points !== 1 ? 's' : ''})</span>
+                        <span class="category-badge">${q.type === 'audio' ? 'Áudio' : q.type === 'writing' ? 'Escrita' : 'Múltipla Escolha'}</span>
+                    </div>
+                    <div class="question-text">${q.question}</div>
+                    ${specialHTML}
+                    <div class="options">${optionsHTML}</div>
+                `;
+                
+                questionsContainer.appendChild(questionElement);
+            });
+            
+            setupAnswerEvents();
+        }
+
+        // Reproduzir áudio usando síntese de fala
+        function playAudio(questionId) {
+            const text = audioTexts[questionId];
+            if (!text) return;
+            
+            if (speechSynthesis.speaking) {
+                speechSynthesis.cancel();
+            }
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.9;
+            utterance.pitch = 1.0;
+            
+            speechSynthesis.speak(utterance);
+        }
+
+        // Configurar eventos para capturar respostas
+        function setupAnswerEvents() {
+            questions.forEach((q, index) => {
+                if (q.type === 'multiple' || q.type === 'audio') {
+                    const radioButtons = document.querySelectorAll(`input[name="question-${q.id}"]`);
+                    
+                    radioButtons.forEach((radio, optIndex) => {
+                        radio.addEventListener('change', function() {
+                            if (this.checked) {
+                                studentAnswers[index] = parseInt(this.value);
+                            }
+                        });
+                    });
+                }
+            });
+        }
+
+        // Iniciar a prova
+        function startTest() {
+            studentName = document.getElementById('student-name').value.trim();
+            studentClass = document.getElementById('student-class').value.trim();
+            studentUnit = document.getElementById('student-unit').value.trim();
+            teacherName = document.getElementById('teacher-name').value.trim();
+            studentPhone = document.getElementById('student-phone').value.trim();
+            studentBook = document.getElementById('book').value;
+            
+            if (!studentName || !studentClass || !studentUnit || !teacherName || !studentBook) {
+                alert('Por favor, preencha todos os campos obrigatórios antes de iniciar a prova.');
+                return;
+            }
+            
+            if (testStarted) {
+                alert('Você já iniciou a prova. Apenas uma tentativa é permitida.');
+                return;
+            }
+            
+            testStarted = true;
+            
+            displayStudentName.textContent = studentName;
+            displayStudentClass.textContent = studentClass;
+            displayStudentUnit.textContent = studentUnit;
+            displayTeacherName.textContent = teacherName;
+            
+            studentSection.classList.add('hidden');
+            testSection.classList.remove('hidden');
+            
+            startTimer();
+            
+            setTimeout(() => {
+                document.getElementById('question-1').scrollIntoView({ behavior: 'smooth' });
+            }, 300);
+        }
+
+        // Iniciar o timer da prova
+        function startTimer() {
+            updateTimerDisplay();
+            
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    submitTest();
+                }
+            }, 1000);
+        }
+
+        // Atualizar display do timer
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `Tempo: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft < 300) {
+                timerElement.style.color = '#e74c3c';
+            }
+        }
+
+        // Submeter a prova
+        function submitTest() {
+            clearInterval(timerInterval);
+            
+            let unansweredCount = 0;
+            let incompleteWriting = 0;
+            
+            questions.forEach((q, index) => {
+                if (q.type === 'multiple' || q.type === 'audio') {
+                    if (studentAnswers[index] === null) {
+                        unansweredCount++;
+                    }
+                } else if (q.type === 'writing') {
+                    if (writingAnswers[index].length < q.minChars) {
+                        incompleteWriting++;
+                    }
+                }
+            });
+            
+            let warningMessage = '';
+            if (unansweredCount > 0) {
+                warningMessage += `Você não respondeu ${unansweredCount} questão(ões) de múltipla escolha/áudio.\n`;
+            }
+            
+            if (incompleteWriting > 0) {
+                warningMessage += `Você tem ${incompleteWriting} resposta(s) escrita(s) com menos caracteres que o mínimo recomendado.\n`;
+            }
+            
+            if (warningMessage) {
+                warningMessage += "\nDeseja finalizar mesmo assim?";
+                if (!confirm(warningMessage)) {
+                    startTimer();
+                    return;
+                }
+            }
+            
+            const result = calculateResult();
+            showResult(result);
+        }
+
+        // Calcular resultado da prova
+        function calculateResult() {
+            let correctCount = 0;
+            let totalPoints = 0;
+            const results = [];
+            const wrongAnswers = [];
+            
+            questions.forEach((q, index) => {
+                const userAnswer = studentAnswers[index];
+                const userWriting = writingAnswers[index];
+                let isCorrect = false;
+                let pointsEarned = 0;
+                
+                if (q.type === 'multiple' || q.type === 'audio') {
+                    isCorrect = userAnswer === q.correctAnswer;
+                    
+                    if (isCorrect) {
+                        correctCount++;
+                        pointsEarned = q.points;
+                        totalPoints += q.points;
+                    } else {
+                        wrongAnswers.push({
+                            question: q.question,
+                            userAnswer: userAnswer !== null ? q.options[userAnswer] : "Não respondida",
+                            correctAnswer: q.options[q.correctAnswer],
+                            explanation: q.explanation,
+                            category: q.category,
+                            type: q.type,
+                            points: q.points
+                        });
+                    }
+                    
+                    results.push({
+                        question: q.question,
+                        userAnswer: userAnswer !== null ? q.options[userAnswer] : "Não respondida",
+                        correctAnswer: q.options[q.correctAnswer],
+                        isCorrect: isCorrect,
+                        explanation: q.explanation,
+                        category: q.category,
+                        type: q.type,
+                        points: q.points,
+                        pointsEarned: pointsEarned
+                    });
+                } 
+                else if (q.type === 'writing') {
+                    const length = userWriting.length;
+                    
+                    if (length >= q.minChars) {
+                        pointsEarned = q.points * (0.5 + 0.5 * Math.min(length / (q.minChars * 2), 1));
+                        pointsEarned = Math.round(pointsEarned * 100) / 100;
+                        totalPoints += pointsEarned;
+                    }
+                    
+                    results.push({
+                        question: q.question,
+                        userAnswer: userWriting || "Não respondida",
+                        correctAnswer: "Resposta escrita (avaliada por comprimento e conteúdo)",
+                        isCorrect: length >= q.minChars,
+                        explanation: q.explanation,
+                        category: q.category,
+                        type: q.type,
+                        points: q.points,
+                        pointsEarned: pointsEarned,
+                        writingLength: length,
+                        minChars: q.minChars
+                    });
+                }
+            });
+            
+            return {
+                correctCount,
+                totalQuestions: questions.filter(q => q.type !== 'writing').length,
+                totalPoints: Math.min(totalPoints, 10),
+                results,
+                wrongAnswers
+            };
+        }
+
+        // Mostrar resultado
+        function showResult(result) {
+            testSection.classList.add('hidden');
+            resultSection.classList.remove('hidden');
+            
+            resultStudentName.textContent = studentName;
+            resultStudentClass.textContent = studentClass;
+            resultStudentUnit.textContent = studentUnit;
+            resultTeacherName.textContent = teacherName;
+            
+            scoreElement.textContent = `${result.totalPoints.toFixed(2)}/10`;
+            scoreDetails.textContent = `(${result.correctCount} acertos de ${result.totalQuestions} questões objetivas)`;
+            
+            let performance = "";
+            let badgeClass = "";
+            let badgeText = "";
+            
+            if (result.totalPoints >= 9) {
+                performance = "Excelente! Domínio total do inglês corporativo.";
+                badgeClass = "excellent";
+                badgeText = "Excelente";
+            } else if (result.totalPoints >= 7) {
+                performance = "Bom trabalho! Conhecimento sólido para comunicação profissional.";
+                badgeClass = "good";
+                badgeText = "Bom";
+            } else if (result.totalPoints >= 5) {
+                performance = "Razoável. Recomenda-se praticar mais a compreensão auditiva e escrita.";
+                badgeClass = "regular";
+                badgeText = "Razoável";
+            } else {
+                performance = "Precisa estudar mais os conceitos básicos do inglês corporativo.";
+                badgeClass = "poor";
+                badgeText = "Insuficiente";
+            }
+            
+            performanceText.textContent = performance;
+            performanceBadge.textContent = badgeText;
+            performanceBadge.className = `performance-badge ${badgeClass}`;
+            
+            wrongAnswersContainer.innerHTML = '';
+            
+            if (result.wrongAnswers.length > 0) {
+                wrongAnswersContainer.innerHTML = '<h3>Questões que precisam de revisão:</h3>';
+                
+                result.wrongAnswers.forEach((item, index) => {
+                    const wrongItem = document.createElement('div');
+                    wrongItem.className = 'question';
+                    
+                    wrongItem.innerHTML = `
+                        <div>
+                            <span class="tool-badge">${item.category}</span>
+                            <span class="question-points">(Valia ${item.points} ponto${item.points !== 1 ? 's' : ''})</span>
+                        </div>
+                        <div class="question-text">${item.question}</div>
+                        <div><strong>Sua resposta:</strong> <span class="incorrect-answer">${item.userAnswer}</span></div>
+                        <div><strong>Resposta correta:</strong> <span class="correct-answer">${item.correctAnswer}</span></div>
+                        <div class="answer-explanation">${item.explanation}</div>
+                    `;
+                    
+                    wrongAnswersContainer.appendChild(wrongItem);
+                });
+            } else {
+                wrongAnswersContainer.innerHTML = '<p class="correct-answer">Parabéns! Você acertou todas as questões objetivas.</p>';
+            }
+            
+            const writingResults = result.results.filter(r => r.type === 'writing');
+            if (writingResults.length > 0) {
+                const writingFeedback = document.createElement('div');
+                writingFeedback.className = 'writing-feedback';
+                writingFeedback.innerHTML = '<h3>Questões de Escrita:</h3>';
+                
+                writingResults.forEach((writing, index) => {
+                    const questionNum = questions.findIndex(q => q.id === index + 13) + 1;
+                    writingFeedback.innerHTML += `
+                        <p><strong>Questão ${questionNum}:</strong> ${writing.pointsEarned.toFixed(2)}/${writing.points} pontos</p>
+                        <p><em>${writing.writingLength >= writing.minChars ? 
+                            `Sua resposta tem ${writing.writingLength} caracteres (mínimo: ${writing.minChars})` : 
+                            `Sua resposta tem apenas ${writing.writingLength} caracteres (mínimo necessário: ${writing.minChars})`}</em></p>
+                    `;
+                });
+                
+                wrongAnswersContainer.appendChild(writingFeedback);
+            }
+        }
+
+        // Gerar PDF com relatório de 2 páginas
+        function generatePDF() {
+            const result = calculateResult();
+            const currentDate = new Date().toLocaleDateString('pt-BR');
+            
+            // Conteúdo compacto para 2 páginas (fontes menores, menos espaçamento)
+            let pdfContent = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <style>
+                        @page { margin: 0.8cm; }
+                        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; font-size: 9px; line-height: 1.2; }
+                        .page { padding: 10px; }
+                        .header { text-align: center; margin-bottom: 10px; padding-bottom: 5px; border-bottom: 1px solid #2c5364; }
+                        .logo { max-height: 35px; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2)); }
+                        h1 { color: #2c5364; margin: 3px 0; font-size: 14px; }
+                        h2 { color: #2c3e50; border-bottom: 1px solid #2c5364; padding-bottom: 2px; margin-top: 15px; font-size: 11px; }
+                        h3 { color: #e74c3c; margin-top: 10px; font-size: 10px; }
+                        .student-info { background-color: #f8f9fa; padding: 8px; border-left: 2px solid #2c5364; margin-bottom: 10px; font-size: 8px; }
+                        .score { font-size: 22px; font-weight: bold; color: #2c5364; text-align: center; margin: 10px 0; }
+                        .wrong-item { margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid #eee; page-break-inside: avoid; }
+                        .correct { color: #27ae60; font-weight: bold; }
+                        .incorrect { color: #e74c3c; font-weight: bold; }
+                        .tool-badge { background-color: #e8f4fc; color: #2c5364; padding: 1px 4px; border-radius: 8px; font-size: 7px; display: inline-block; margin-right: 5px; }
+                        .points { color: #2c5364; font-weight: bold; font-size: 8px; }
+                        .explanation { font-style: italic; color: #666; margin-top: 3px; font-size: 8px; line-height: 1.1; }
+                        .footer { text-align: center; margin-top: 15px; padding-top: 8px; border-top: 1px solid #ddd; color: #777; font-size: 7px; }
+                        .performance-badge { display: inline-block; padding: 3px 8px; border-radius: 10px; font-weight: bold; font-size: 8px; margin: 3px; }
+                        .excellent { background-color: #d5f4e6; color: #27ae60; }
+                        .good { background-color: #e8f4fc; color: #3498db; }
+                        .regular { background-color: #fff3cd; color: #f39c12; }
+                        .poor { background-color: #fdeaea; color: #e74c3c; }
+                        .page-break { page-break-before: always; }
+                        .note { font-size: 7px; color: #777; font-style: italic; }
+                        .writing-feedback { background-color: #fff3cd; padding: 6px; border-radius: 4px; margin-top: 8px; border-left: 2px solid #f39c12; font-size: 8px; }
+                        .study-tips { background-color: #e8f4fc; padding: 8px; border-radius: 4px; margin-top: 10px; font-size: 8px; }
+                        .compact-text { font-size: 8px; line-height: 1.1; }
+                        .signature-box { border-top: 1px solid #333; width: 200px; margin: 15px auto; text-align: center; padding-top: 3px; font-size: 8px; }
+                        .stats-box { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 10px; }
+                        .stat-item { background-color: #f8f9fa; padding: 6px; border-radius: 4px; text-align: center; }
+                        .stat-value { font-size: 12px; font-weight: bold; margin-bottom: 2px; }
+                        .stat-label { font-size: 7px; color: #666; }
+                    </style>
+                </head>
+                <body>
+                    <div class="page">
+                        <div class="header">
+                            <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 5px;">
+                                <img src="https://i.ibb.co/ZRSQ1Bm2/logo.png" alt="Ápice Treinamentos" class="logo">
+                            </div>
+                            <div style="font-size: 8px; color: #2c5364; font-weight: bold;">2025</div>
+                            <h1>RELATÓRIO DE DESEMPENHO</h1>
+                            <h2>PROVA DE INGLÊS CORPORATIVO</h2>
+                        </div>
+                        
+                        <div class="student-info">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                                <div><strong>Aluno:</strong> ${studentName}</div>
+                                <div><strong>Turma:</strong> ${studentClass}</div>
+                                <div><strong>Unidade:</strong> ${studentUnit}</div>
+                                <div><strong>Professor:</strong> ${teacherName}</div>
+                                <div><strong>Livro:</strong> ${studentBook}</div>
+                                <div><strong>Data:</strong> ${currentDate}</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Área de assinatura -->
+                        <div style="text-align: center; margin: 5px 0 10px 0;">
+                            <div class="signature-box">
+                                Assinatura do Aluno
+                            </div>
+                        </div>
+                        
+                        <div class="score">${result.totalPoints.toFixed(2)}/10</div>
+                        
+                        <div style="text-align: center; margin: 5px 0;">
+                            ${result.totalPoints >= 9 ? 
+                                '<span class="performance-badge excellent">EXCELENTE</span>' : 
+                              result.totalPoints >= 7 ? 
+                                '<span class="performance-badge good">BOM</span>' : 
+                              result.totalPoints >= 5 ? 
+                                '<span class="performance-badge regular">RAZOÁVEL</span>' : 
+                                '<span class="performance-badge poor">INSUFICIENTE</span>'}
+                        </div>
+                        
+                        <p style="text-align: center; font-size: 9px; margin-bottom: 10px;">
+                            ${result.totalPoints >= 9 ? 'Excelente! Domínio total do inglês corporativo.' : 
+                              result.totalPoints >= 7 ? 'Bom trabalho! Conhecimento sólido para comunicação profissional.' : 
+                              result.totalPoints >= 5 ? 'Razoável. Recomenda-se praticar mais a compreensão auditiva e escrita.' : 
+                              'Precisa estudar mais os conceitos básicos do inglês corporativo.'}
+                        </p>
+                        
+                        <div class="stats-box">
+                            <div class="stat-item">
+                                <div class="stat-value" style="color: #27ae60;">${result.correctCount}</div>
+                                <div class="stat-label">ACERTOS</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" style="color: #e74c3c;">${result.totalQuestions - result.correctCount}</div>
+                                <div class="stat-label">ERROS</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" style="color: #2c5364;">${result.totalQuestions}</div>
+                                <div class="stat-label">TOTAL QUESTÕES</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" style="color: #f39c12;">${Math.round((result.correctCount / result.totalQuestions) * 100)}%</div>
+                                <div class="stat-label">TAXA DE ACERTO</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Questões erradas (compactas) -->
+                        ${result.wrongAnswers.length > 0 ? `
+                            <h2>QUESTÕES PARA REVISÃO</h2>
+                            <p class="note">Mostrando ${Math.min(result.wrongAnswers.length, 4)} de ${result.wrongAnswers.length} questões com erro</p>
+                        ` : '<p class="correct" style="text-align: center; font-size: 9px;">PARABÉNS! TODAS AS QUESTÕES OBJETIVAS CORRETAS.</p>'}
+            `;
+            
+            // Adicionar até 4 questões erradas (para caber em 2 páginas)
+            if (result.wrongAnswers.length > 0) {
+                const maxWrongAnswers = Math.min(result.wrongAnswers.length, 4);
+                
+                result.wrongAnswers.slice(0, maxWrongAnswers).forEach((item, index) => {
+                    pdfContent += `
+                        <div class="wrong-item">
+                            <p class="compact-text">
+                                <span class="tool-badge">${item.category}</span>
+                                <span class="points">(${item.points} ponto${item.points !== 1 ? 's' : ''})</span>
+                            </p>
+                            <p class="compact-text"><strong>${item.question}</strong></p>
+                            <p class="compact-text"><strong>Sua resposta:</strong> <span class="incorrect">${item.userAnswer.substring(0, 80)}${item.userAnswer.length > 80 ? '...' : ''}</span></p>
+                            <p class="compact-text"><strong>Resposta correta:</strong> <span class="correct">${item.correctAnswer.substring(0, 80)}${item.correctAnswer.length > 80 ? '...' : ''}</span></p>
+                            <p class="explanation">${item.explanation.substring(0, 120)}${item.explanation.length > 120 ? '...' : ''}</p>
+                        </div>
+                    `;
+                });
+                
+                if (result.wrongAnswers.length > maxWrongAnswers) {
+                    pdfContent += `<p class="note">+ ${result.wrongAnswers.length - maxWrongAnswers} questão(ões) adicional(is) não mostrada(s).</p>`;
+                }
+            }
+            
+            // Segunda página
+            pdfContent += `
+                    </div>
+                    <div class="page page-break">
+                        <div class="header">
+                            <h2>ANÁLISE DE DESEMPENHO E RECOMENDAÇÕES</h2>
+                        </div>
+                        
+                        <!-- Análise por categoria -->
+                        <h3>DESEMPENHO POR CATEGORIA</h3>
+                        <div class="study-tips">
+            `;
+            
+            // Calcular desempenho por categoria
+            const categoryStats = {};
+            const categoryCorrect = {};
+            
+            questions.forEach((q, index) => {
+                if (!categoryStats[q.category]) {
+                    categoryStats[q.category] = 0;
+                    categoryCorrect[q.category] = 0;
+                }
+                categoryStats[q.category]++;
+                
+                if (q.type === 'multiple' || q.type === 'audio') {
+                    if (studentAnswers[index] === q.correctAnswer) {
+                        categoryCorrect[q.category]++;
+                    }
+                }
+            });
+            
+            for (const category in categoryStats) {
+                if (categoryStats.hasOwnProperty(category)) {
+                    const total = categoryStats[category];
+                    const correct = categoryCorrect[category] || 0;
+                    const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+                    
+                    pdfContent += `
+                        <p class="compact-text" style="margin-bottom: 4px;">
+                            <strong>${category}:</strong> ${correct}/${total} (${percentage}%)
+                            <span style="display: inline-block; width: 60px; height: 4px; background-color: #eee; margin-left: 5px;">
+                                <span style="display: block; width: ${percentage}%; height: 100%; background-color: ${percentage >= 70 ? '#27ae60' : percentage >= 50 ? '#f39c12' : '#e74c3c'};"></span>
+                            </span>
+                        </p>
+                    `;
+                }
+            }
+            
+            pdfContent += `
+                        </div>
+                        
+                        <!-- Questões de escrita -->
+                        <h3>QUESTÕES DE ESCRITA</h3>
+                        <div class="writing-feedback">
+            `;
+            
+            const writingResults = result.results.filter(r => r.type === 'writing');
+            if (writingResults.length > 0) {
+                writingResults.forEach((writing, index) => {
+                    const questionNum = questions.findIndex(q => q.id === index + 13) + 1;
+                    pdfContent += `
+                        <p class="compact-text" style="margin-bottom: 3px;">
+                            <strong>Questão ${questionNum}:</strong> ${writing.pointsEarned.toFixed(2)}/${writing.points} pontos
+                            (${writing.writingLength} caracteres)
+                        </p>
+                    `;
+                });
+                
+                pdfContent += `
+                            <p class="compact-text" style="margin-top: 5px;">
+                                <strong>Dica:</strong> Pratique escrever emails e mensagens profissionais em inglês regularmente.
+                            </p>
+                `;
+            } else {
+                pdfContent += `<p class="compact-text">Nenhuma questão de escrita respondida.</p>`;
+            }
+            
+            pdfContent += `
+                        </div>
+                        
+                        <!-- Recomendações de estudo -->
+                        <h3>RECOMENDAÇÕES DE ESTUDO</h3>
+                        <div class="study-tips">
+                            <ol class="compact-text" style="padding-left: 15px;">
+                                <li>Pratique a compreensão auditiva com diálogos corporativos</li>
+                                <li>Estude 10 palavras de vocabulário corporativo por dia</li>
+                                <li>Escreva emails em inglês (mesmo que não envie)</li>
+                                <li>Revise as estruturas gramaticais: can/can't, there is/are</li>
+                                <li>Simule situações de atendimento telefônico em inglês</li>
+                            </ol>
+                            
+                            <p class="compact-text" style="margin-top: 8px; font-weight: bold;">
+                                Livro recomendado para estudo: ${studentBook}
+                            </p>
+                        </div>
+                        
+                        <!-- Status da prova -->
+                        <div style="background-color: ${result.totalPoints >= 5 ? '#d5f4e6' : '#fdeaea'}; padding: 8px; border-radius: 4px; margin-top: 10px; border-left: 3px solid ${result.totalPoints >= 5 ? '#27ae60' : '#e74c3c'};">
+                            <p class="compact-text" style="text-align: center; font-weight: bold;">
+                                STATUS: ${result.totalPoints >= 5 ? 'APROVADO' : 'REPROVADO'} | 
+                                NOTA FINAL: ${result.totalPoints.toFixed(2)}/10
+                            </p>
+                            <p class="compact-text" style="text-align: center; margin-top: 3px;">
+                                ${result.totalPoints >= 5 ? 
+                                    'Continue praticando para manter e melhorar seu desempenho.' : 
+                                    'É necessário revisar o conteúdo e refazer a prova.'}
+                            </p>
+                        </div>
+                        
+                        <!-- Informações finais -->
+                        <div class="footer">
+                            <p>Ápice Treinamentos &copy; 2025 - Prova de Inglês Corporativo</p>
+                            <p>Relatório gerado em: ${new Date().toLocaleString('pt-BR')}</p>
+                            <p>Unidade: ${studentUnit} | Professor: ${teacherName}</p>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `;
+            
+            // Abrir nova janela com o conteúdo para impressão/salvar como PDF
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(pdfContent);
+            printWindow.document.close();
+            
+            // Aguardar o carregamento da página e então mostrar o diálogo de impressão
+            printWindow.onload = function() {
+                printWindow.print();
+            };
+        }
+    </script>
+</body>
+</html>
